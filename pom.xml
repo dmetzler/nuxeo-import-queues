@@ -209,8 +209,8 @@
   </profiles>
 
   <scm>
-    <connection>scm:git:ssh://jenkins@192.168.234.75:29418/solocal/ref/nuxeo-importer-queues</connection>
-    <developerConnection>scm:git:ssh://jenkins@192.168.234.75:29418/solocal/ref/nuxeo-importer-queues</developerConnection>
+    <connection>scm:git:ssh://jenkins@192.168.234.75:29418/solocal/ref/nuxeo-import-queues</connection>
+    <developerConnection>scm:git:ssh://jenkins@192.168.234.75:29418/solocal/ref/nuxeo-import-queues</developerConnection>
     <url></url>
   </scm>
 
