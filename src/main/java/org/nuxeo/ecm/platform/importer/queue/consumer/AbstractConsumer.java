@@ -36,6 +36,11 @@ public abstract class AbstractConsumer extends AbstractTaskRunner implements Con
 
     protected final ImportStat importStat;
 
+    /**
+     * @author fmunch
+     */
+    protected String originatingUsername;
+
     protected ImporterLogger log = null;
 
     public AbstractConsumer(ImporterLogger log, DocumentModel root, int batchSize, BlockingQueue<SourceNode> queue) {
@@ -54,7 +59,7 @@ public abstract class AbstractConsumer extends AbstractTaskRunner implements Con
         startTime = System.currentTimeMillis();
         lastCheckTime = startTime;
 
-        UnrestrictedSessionRunner runner = new UnrestrictedSessionRunner(repositoryName) {
+        UnrestrictedSessionRunner runner = new UnrestrictedSessionRunner(repositoryName, originatingUsername) {
             @Override
             public void run() throws ClientException {
                 while (!mustStop) {
@@ -133,5 +138,13 @@ public abstract class AbstractConsumer extends AbstractTaskRunner implements Con
     public ImportStat getImportStat() {
         return importStat;
     }
+
+	public String getOriginatingUsername() {
+		return originatingUsername;
+	}
+
+	public void setOriginatingUsername(String originatingUsername) {
+		this.originatingUsername = originatingUsername;
+	}
 
 }
